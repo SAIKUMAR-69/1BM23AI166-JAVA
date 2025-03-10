@@ -1,0 +1,47 @@
+import java.util.*;
+
+public class sandy_gym {
+    String name;
+    int age;
+    int fee = 50;
+    int amt;
+    boolean status;
+    int duration;
+
+
+    int calc(int duration) {
+        amt = duration * fee;
+        return amt;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        sandy_gym obj = new sandy_gym();
+
+
+        System.out.println("Enter the number of people:");
+        int n = sc.nextInt();
+        sc.nextLine();
+
+
+        for (int i = 1; i <= n; i++) {
+
+            System.out.println("Enter the name of member " + i + ":");
+            obj.name = sc.nextLine();
+            System.out.println("Enter the age of member " + i + ":");
+            obj.age = sc.nextInt();
+            sc.nextLine(); 
+            System.out.println("Enter the duration (in months) of the membership for member " + i + ":");
+            obj.duration = sc.nextInt();
+            sc.nextLine();  // Consume the leftover newline
+
+            System.out.println("Enter status (True/False) for member " + i + ":");
+            obj.status = sc.nextBoolean();
+            sc.nextLine();  // Consume the leftover newline
+
+
+            obj.amt = obj.calc(obj.duration);
+            System.out.println("Final amount for member " + i + " is " + obj.amt);
+        }
+    }
+}
